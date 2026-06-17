@@ -61,7 +61,7 @@
   #cur-trail { width: 36px; height: 36px; border: 1px solid rgba(208, 77, 255, 0.8); box-shadow: 0 0 15px var(--glow); transition: all .12s ease-out; }
 
   @media (pointer: coarse) {
-    body, a, .btn, details, .status-capsule { cursor: auto !important; }
+    body, a, .btn, details, .status-capsule, .verify-btn { cursor: auto !important; }
     #cur, #cur-trail { display: none !important; }
   }
 
@@ -73,6 +73,29 @@
   body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E"); opacity: .5; z-index: 1; pointer-events: none; }
 
   .container { width: min(1000px, 90%); margin: 0 auto; position: relative; z-index: 2; }
+
+  /* ── FLOATING VERIFY BUTTON ── */
+  .verify-btn {
+    position: fixed; z-index: 1000;
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 12px 20px; border-radius: 100px;
+    background: rgba(10, 4, 20, 0.7); border: 1px solid var(--border);
+    backdrop-filter: blur(16px); color: var(--silver);
+    font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 0 20px rgba(170, 0, 255, 0.15);
+    bottom: 30px; left: 30px; text-decoration: none;
+  }
+  
+  .verify-btn:hover { 
+    transform: translateY(-3px) scale(1.05); 
+    box-shadow: 0 10px 30px var(--glow), 0 0 15px var(--glow-intense); 
+    border-color: var(--purple2); 
+    color: #fff;
+  }
+
+  .verify-btn .icon { color: #23d18b; font-size: 1.1rem; font-weight: 900; text-shadow: 0 0 10px rgba(35, 209, 139, 0.5); }
+  .verify-btn:hover .icon { text-shadow: 0 0 15px #23d18b; }
 
   /* ── NAV ── */
   nav {
@@ -196,6 +219,13 @@
     .policy-card { padding: 2rem 1.5rem; }
     .footer-inner { flex-direction: column; text-align: center; padding-bottom: 80px; }
     .footer-right { text-align: center; }
+    
+    /* Move Verify Toggle top so it doesn't clash with dock */
+    .verify-btn {
+      top: 15px; bottom: auto; left: 15px;
+      padding: 10px 14px; font-size: 0.75rem; 
+      background: rgba(10, 4, 20, 0.85);
+    }
   }
 </style>
 </head>
@@ -205,7 +235,13 @@
   <div id="cur-trail"></div>
   <div id="particles"></div>
 
+  <a href="https://www.bewafa.fun/verify/" class="verify-btn" target="_blank" rel="noopener" title="Verify User">
+    <span class="icon">✓</span>
+    <span>Verify</span>
+  </a>
+
   <nav>
+    <a href="https://www.bewafa.fun/" class="nav-link">Home</a>
     <a href="#acceptance" class="nav-link">Acceptance</a>
     <a href="#conduct" class="nav-link">Conduct</a>
     <a href="#smp-rules" class="nav-link">SMP Rules</a>
@@ -286,6 +322,11 @@
       <div class="footer-info">
         <div>For support or appeals, open a ticket in the server.</div>
         <div style="margin-top: 5px;"><a href="https://discord.gg/bewafa" class="inline-link" target="_blank">discord.gg/bewafa</a></div>
+        <div style="margin-top: 1rem;">
+          <a href="https://www.bewafa.fun/" style="color: var(--silver3); margin: 0 10px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--silver3)'">Home</a>
+          <span style="color: var(--border2)">|</span>
+          <a href="https://www.bewafa.fun/privacy/" style="color: var(--silver3); margin: 0 10px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; transition: 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--silver3)'">Privacy Policy</a>
+        </div>
       </div>
       <div class="footer-right">
         © <span id="year"></span> Bewafa Community<br>
