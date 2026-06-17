@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Terms of Service — Bewafa Community & SMP</title>
+<meta name="description" content="Official Terms of Service for the Bewafa Discord Community, Bots, and Minecraft SMP." />
+<meta name="theme-color" content="#9d00ff" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Orbitron:wght@400;600;700;900&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<link rel="icon" href="icon.gif" type="image/gif" />
+
+<style>
+  *,*::before,*::after { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  :root {
+    /* Deep Backgrounds */
+    --bg: #05020a;
+    --bg2: #0a0414;
+    --bg3: #120724;
+    
+    /* Enhanced Electric Neon Purple Theme */
+    --purple: #aa00ff;
+    --purple2: #d04dff;
+    --purple3: #e8a6ff;
+    
+    --silver: #f8fafc;
+    --silver2: #cbd5e1;
+    --silver3: #94a3b8;
+    
+    /* Intense Glow Variables */
+    --border: rgba(170, 0, 255, 0.3);
+    --border2: rgba(208, 77, 255, 0.6);
+    --glow: rgba(170, 0, 255, 0.5);
+    --glow-intense: rgba(208, 77, 255, 0.8);
+    --glow-core: rgba(232, 166, 255, 1);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--silver);
+    font-family: 'Syne', sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+    cursor: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1, h2, h3, .nav-link, .btn, .status-text {
+    font-family: 'Quantico', sans-serif;
+  }
+
+  /* ── TRIFORGE CURSOR ── */
+  #cur, #cur-trail { position: fixed; border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); }
+  #cur { width: 8px; height: 8px; background: var(--purple3); box-shadow: 0 0 15px var(--glow-core), 0 0 30px var(--purple); }
+  #cur-trail { width: 36px; height: 36px; border: 1px solid rgba(208, 77, 255, 0.8); box-shadow: 0 0 15px var(--glow); transition: all .12s ease-out; }
+
+  @media (pointer: coarse) {
+    body, a, .btn, details, .status-capsule { cursor: auto !important; }
+    #cur, #cur-trail { display: none !important; }
+  }
+
+  /* ── BACKGROUND PARTICLES & NOISE ── */
+  #particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .p { position: absolute; border-radius: 50%; animation: float linear infinite; }
+  @keyframes float { 0% { transform: translateY(100vh) scale(0); opacity: 0; } 10% { opacity: 1; } 90% { opacity: .6; } 100% { transform: translateY(-10vh) scale(1); opacity: 0; } }
+
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E"); opacity: .5; z-index: 1; pointer-events: none; }
+
+  .container { width: min(1000px, 90%); margin: 0 auto; position: relative; z-index: 2; }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; justify-content: center; gap: 40px;
+    padding: 24px 0; background: linear-gradient(180deg, rgba(5,2,10,0.95) 0%, rgba(5,2,10,0.8) 60%, transparent 100%);
+    backdrop-filter: blur(16px); border-bottom: 1px solid rgba(170,0,255,0.1);
+    transition: 0.4s;
+  }
+  nav a {
+    color: var(--silver2); text-decoration: none; font-size: 0.95rem; font-weight: 700;
+    transition: 0.3s; position: relative; text-transform: uppercase; letter-spacing: 2px;
+  }
+  nav a:hover { color: #fff; text-shadow: 0 0 15px var(--purple3), 0 0 30px var(--purple); transform: translateY(-2px); }
+  nav a::after {
+    content: ''; position: absolute; left: 50%; bottom: -8px; height: 2px; width: 0;
+    background: var(--glow-core); border-radius: 2px; transition: all 0.4s ease;
+    transform: translateX(-50%); box-shadow: 0 0 10px var(--glow-core);
+  }
+  nav a:hover::after { width: 100%; }
+
+  /* ── HERO ── */
+  header.hero {
+    padding: 100px 0 60px; text-align: center; position: relative; z-index: 2;
+  }
+  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(170, 0, 255, 0.15) 0%, transparent 70%); pointer-events: none; }
+
+  .page-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem); 
+    color: #ffffff; 
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+    animation: fadeUp .8s 0.2s both ease, ambientTextGlow 4s ease-in-out infinite alternate;
+  }
+  
+  @keyframes ambientTextGlow {
+    0% { text-shadow: 0 0 25px rgba(170, 0, 255, 0.3), 0 0 50px rgba(170, 0, 255, 0.1); }
+    100% { text-shadow: 0 0 40px rgba(208, 77, 255, 0.6), 0 0 80px rgba(170, 0, 255, 0.4); }
+  }
+
+  .tagline {
+    color: var(--silver2); font-size: 1rem; letter-spacing: 0.2em; text-transform: uppercase;
+    font-weight: 600; margin-bottom: 2rem; animation: fadeUp .8s 0.4s both ease;
+  }
+
+  .last-updated {
+    display: inline-block; padding: 10px 20px; background: rgba(170, 0, 255, 0.1);
+    border: 1px solid var(--border); border-radius: 100px; color: var(--purple3);
+    font-size: 0.85rem; font-weight: 700; letter-spacing: 1px;
+    animation: fadeUp .8s 0.6s both ease;
+  }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ── POLICY CONTENT (CARDS) ── */
+  section { padding: 4rem 0; position: relative; z-index: 2; }
+  
+  .policy-card {
+    background: rgba(10, 4, 20, 0.6); border: 1px solid var(--border); border-radius: 24px;
+    padding: 3rem 3.5rem; margin-bottom: 2rem; transition: 0.5s ease; position: relative; overflow: hidden;
+    backdrop-filter: blur(16px);
+  }
+  .policy-card::before {
+    content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 4px;
+    background: linear-gradient(90deg, transparent, var(--purple2), transparent);
+    transition: 0.7s ease; z-index: 3;
+  }
+  .policy-card:hover::before { left: 100%; }
+  .policy-card:hover { border-color: var(--purple3); box-shadow: 0 15px 40px rgba(170, 0, 255, 0.15); background: rgba(170, 0, 255, 0.05); }
+
+  .policy-card h2 {
+    color: #fff; font-size: 1.8rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 15px;
+    border-bottom: 1px solid var(--border); padding-bottom: 15px;
+  }
+  .policy-card h2 span.icon {
+    display: grid; place-items: center; width: 45px; height: 45px; background: rgba(170,0,255,0.1);
+    border-radius: 12px; border: 1px solid var(--border2); color: var(--glow-core); font-size: 1.2rem;
+  }
+  
+  .policy-card h3 { color: var(--purple3); font-size: 1.2rem; margin: 1.5rem 0 0.8rem; letter-spacing: 1px; }
+  .policy-card p { color: var(--silver2); font-size: 1.05rem; margin-bottom: 1rem; line-height: 1.8; }
+  .policy-card strong { color: #fff; }
+
+  ul.policy-list { list-style: none; padding: 0; margin: 15px 0 25px 0; }
+  ul.policy-list li { margin: 10px 0; padding-left: 28px; position: relative; color: var(--silver2); font-size: 1.05rem; }
+  ul.policy-list li::before { content: "»"; position: absolute; left: 0; color: var(--purple2); font-weight: bold; font-size: 1.2rem; }
+
+  .highlight-box {
+    background: rgba(232, 166, 255, 0.08); border-left: 4px solid var(--purple2);
+    padding: 20px; border-radius: 0 12px 12px 0; margin: 20px 0;
+  }
+
+  /* ── BUTTONS ── */
+  .btn-primary {
+    display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+    padding: 1rem 2rem; border-radius: 12px; font-weight: 700; font-size: .9rem;
+    text-transform: uppercase; letter-spacing: .15em; text-decoration: none; cursor: none;
+    color: #fff; background: linear-gradient(135deg, var(--purple), var(--purple2));
+    border: 1px solid var(--purple3); box-shadow: 0 10px 30px var(--glow);
+    transition: 0.4s; margin-top: 15px;
+  }
+  .btn-primary:hover { transform: translateY(-4px); box-shadow: 0 15px 50px var(--glow-intense); border-color: #fff; }
+
+  a.inline-link { color: var(--purple3); text-decoration: none; transition: 0.3s; border-bottom: 1px solid transparent; }
+  a.inline-link:hover { color: #fff; border-bottom-color: var(--glow-core); text-shadow: 0 0 15px var(--glow-intense); }
+
+  /* ── FOOTER ── */
+  footer { position: relative; z-index: 2; border-top: 1px solid var(--border); padding: 3rem 0; background: rgba(5, 2, 10, .95); margin-top: 4rem; }
+  .footer-inner { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; padding: 0 20px; }
+  .footer-brand { display: flex; align-items: center; gap: 1rem; font-family: 'Kaushan Script', cursive; font-size: 1.8rem; color: #fff; text-shadow: 0 0 15px var(--glow); }
+  .footer-info { text-align: center; font-size: 0.85rem; color: var(--silver3); }
+  .footer-right { font-size: 0.85rem; color: var(--silver3); text-align: right; }
+
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 768px) {
+    nav { position: fixed; top: auto; bottom: 20px; left: 50%; transform: translateX(-50%); width: 95%; border-radius: 20px; padding: 14px 6px; background: rgba(10, 4, 20, 0.85); backdrop-filter: blur(20px); gap: 15px; flex-wrap: wrap; justify-content: center;}
+    nav a { font-size: 0.75rem; letter-spacing: 0.5px; }
+    nav a::after { display: none; }
+    .policy-card { padding: 2rem 1.5rem; }
+    .footer-inner { flex-direction: column; text-align: center; padding-bottom: 80px; }
+    .footer-right { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+  <div id="cur"></div>
+  <div id="cur-trail"></div>
+  <div id="particles"></div>
+
+  <nav>
+    <a href="#acceptance" class="nav-link">Acceptance</a>
+    <a href="#conduct" class="nav-link">Conduct</a>
+    <a href="#smp-rules" class="nav-link">SMP Rules</a>
+    <a href="#bots" class="nav-link">Bot Usage</a>
+    <a href="#enforcement" class="nav-link">Enforcement</a>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <h1 class="page-title">Terms of Service</h1>
+      <p class="tagline">Bewafa Community, Discord Bots & SMP</p>
+      <div class="last-updated">Last Updated: Current</div>
+    </div>
+  </header>
+
+  <div class="container">
+    
+    <section id="acceptance" style="padding-top: 0;">
+      <div class="policy-card reveal">
+        <h2><span class="icon">🤝</span> Acceptance of Terms</h2>
+        <p>By accessing the <strong>Bewafa Discord Server</strong>, connecting to the <strong>Bewafa Minecraft SMP</strong>, or interacting with our custom Discord Bots (such as Zyrox), you agree to be bound by these Terms of Service.</p>
+        <p>If you do not agree with any part of these terms, you must disconnect from our servers and cease use of our services immediately. We reserve the right to update these terms at any time, and continued use of the services implies acceptance of the updated terms.</p>
+      </div>
+
+      <div id="conduct" class="policy-card reveal">
+        <h2><span class="icon">📜</span> Community Guidelines & Conduct</h2>
+        <p>Our community is built on mutual respect. While using our Discord server and associated platforms, you agree to adhere to the following core guidelines:</p>
+        <ul class="policy-list">
+          <li><strong>Respect Everyone:</strong> Harassment, hate speech, racism, sexism, or discrimination of any kind will result in an immediate and permanent ban.</li>
+          <li><strong>No Malicious Content:</strong> Do not post phishing links, malware, IP grabbers, or illegal content.</li>
+          <li><strong>Keep it SFW:</strong> Unless specifically designated as an NSFW channel, all content, profile pictures, and usernames must be Safe for Work.</li>
+          <li><strong>Follow Discord ToS:</strong> You must comply with the official Discord Terms of Service and Community Guidelines at all times.</li>
+        </ul>
+      </div>
+
+      <div id="smp-rules" class="policy-card reveal">
+        <h2><span class="icon">⛏️</span> Minecraft SMP Rules</h2>
+        <p>To maintain a fair and enjoyable environment for all players on the Bewafa SMP, the following in-game rules are strictly enforced:</p>
+        <ul class="policy-list">
+          <li><strong>No Hacked Clients or Exploits:</strong> The use of X-Ray, fly hacks, auto-clickers (for PvP), duplication glitches, or any unauthorized client modifications that provide an unfair advantage is strictly prohibited.</li>
+          <li><strong>No Griefing:</strong> Destroying another player's builds, stealing from chests in claimed areas, or maliciously killing players outside of designated PvP zones is not allowed.</li>
+          <li><strong>Fair Economy:</strong> Scamming other players out of in-game items or currency is a bannable offense.</li>
+          <li><strong>Server Performance:</strong> Building intentional lag machines or excessive entity farms that degrade server performance will result in the removal of the build and a potential ban.</li>
+        </ul>
+      </div>
+
+      <div id="bots" class="policy-card reveal">
+        <h2><span class="icon">🤖</span> Discord Bot & API Usage</h2>
+        <p>Our custom bots, including the Zyrox bot and SMP Chat Bridge, are provided to enhance the community experience. By interacting with them, you agree to:</p>
+        <ul class="policy-list">
+          <li><strong>No Automation:</strong> Do not use macros, scripts, or self-bots to farm server XP, currency, or automate commands.</li>
+          <li><strong>No Exploiting:</strong> If you discover a bug or exploit in the bot's economy, leveling, or moderation systems, you must report it to staff immediately. Exploiting bugs for personal gain is prohibited.</li>
+          <li><strong>Acceptable Limits:</strong> Do not spam commands or attempt to rate-limit/crash the bot systems.</li>
+        </ul>
+      </div>
+
+      <div id="enforcement" class="policy-card reveal">
+        <h2><span class="icon">⚖️</span> Enforcement & Disclaimers</h2>
+        <h3>Moderation Rights</h3>
+        <p>The Bewafa Staff Team reserves the right to kick, mute, or permanently ban any user from the Discord server or Minecraft SMP at their sole discretion, with or without prior warning, if they determine these Terms of Service have been violated.</p>
+        
+        <h3>No Affiliation</h3>
+        <p>The Bewafa Community and its Minecraft SMP are not approved by, associated with, or supported by Mojang AB, Microsoft, or Discord Inc. "Minecraft" is a trademark of Mojang Synergies AB.</p>
+        
+        <h3>Limitation of Liability</h3>
+        <div class="highlight-box">
+          <p><strong>⚠️ "As-Is" Service:</strong> Our servers, bots, and services are provided on an "as is" and "as available" basis. We do not guarantee uninterrupted uptime, data preservation (such as Minecraft world saves or Discord economy balances), or freedom from bugs. We are not liable for any data loss or damages arising from the use of our services.</p>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">BEWAFA</div>
+      <div class="footer-info">
+        <div>For support or appeals, open a ticket in the server.</div>
+        <div style="margin-top: 5px;"><a href="https://discord.gg/bewafa" class="inline-link" target="_blank">discord.gg/bewafa</a></div>
+      </div>
+      <div class="footer-right">
+        © <span id="year"></span> Bewafa Community<br>
+        <span style="color:var(--silver3);">All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const cur = document.getElementById('cur'), trail = document.getElementById('cur-trail');
+    let mx = 0, my = 0, tx = 0, ty = 0;
+    
+    document.addEventListener('mousemove', e => { 
+      mx = e.clientX; my = e.clientY; 
+      cur.style.left = mx + 'px'; cur.style.top = my + 'px'; 
+    });
+    
+    (function anim() { 
+      tx += (mx - tx) * .15; ty += (my - ty) * .15; 
+      trail.style.left = tx + 'px'; trail.style.top = ty + 'px'; 
+      requestAnimationFrame(anim); 
+    })();
+
+    document.querySelectorAll('a, button, .policy-card').forEach(el => {
+      el.addEventListener('mouseenter', () => { 
+        trail.style.width = '60px'; trail.style.height = '60px'; trail.style.borderColor = 'var(--glow-core)'; 
+        trail.style.backgroundColor = 'rgba(170, 0, 255, 0.1)';
+        trail.style.boxShadow = '0 0 30px var(--glow)';
+      });
+      el.addEventListener('mouseleave', () => { 
+        trail.style.width = '36px'; trail.style.height = '36px'; trail.style.borderColor = 'rgba(208, 77, 255, 0.8)'; 
+        trail.style.backgroundColor = 'transparent';
+        trail.style.boxShadow = '0 0 15px var(--glow)';
+      });
+    });
+
+    const pc = document.getElementById('particles');
+    for(let i=0; i<35; i++){
+      const p = document.createElement('div');
+      p.className = 'p';
+      const sz = Math.random() * 5 + 1;
+      const hue = Math.random() > 0.5 ? '170,0,255' : '232,166,255'; 
+      p.style.cssText = `
+        width:${sz}px; height:${sz}px;
+        left:${Math.random()*100}%;
+        background:rgba(${hue},${Math.random()*.7+.2});
+        box-shadow:0 0 ${sz*4}px rgba(${hue},.6);
+        animation-duration:${Math.random()*25+15}s;
+        animation-delay:-${Math.random()*20}s;
+      `;
+      pc.appendChild(p);
+    }
+
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { 
+        if (e.isIntersecting) { 
+          e.target.classList.add('visible'); 
+          obs.unobserve(e.target); 
+        } 
+      });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
+  </script>
+</body>
+</html>
